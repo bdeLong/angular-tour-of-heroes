@@ -1,29 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Hero } from './hero';
-
-const HEROES: Hero [] = [
-  { id: 1, name: 'Harry Potter' },
-  { id: 2, name: 'Ronnie the Bear' },
-  { id: 3, name: 'Harmony the Wretch' },
-  { id: 4, name: 'Hagar the Horrible' },
-  { id: 5, name: 'Snake' },
-  { id: 6, name: 'Val-Mart' },
-  { id: 7, name: 'Softcastle McCormick' },
-  { id: 8, name: 'Woodpile & Ernie' },
-  { id: 9, name: "Roast Beefy O'Weefy" },
-  { id: 10, name: 'Uncle Salt-Porker' },
-  { id: 11, name: 'Mouthoil' },
-  { id: 12, name: 'Queerman' },
-  { id: 13, name: 'Catface Meowmers' },
-  { id: 14, name: 'Monster Mash' },
-  { id: 15, name: 'Zoomacroom' },
-  { id: 16, name: 'Major Wood' },
-  { id: 17, name: 'Ed Vanders' },
-  { id: 18, name: 'Upfish' },
-  { id: 19, name: 'Nick Flannel' },
-  { id: 20, name: 'Oogity-Boogity Hat' }
-];
+import { HeroService } from './hero.service';
 
 @Component({
  selector: 'my-app',
@@ -31,15 +9,15 @@ const HEROES: Hero [] = [
    <h1>{{title}}</h1>
    <h2>My Heroes</h2>
    <ul class="heroes">
-     <li *ngFor="let hero of heroes" 
-        [class.selected]="hero === selectedHero"
-        (click)="onSelect(hero)">
-        <span class="badge">{{hero.id}}</span> {{hero.name}}
+     <li *ngFor="let hero of heroes"
+       [class.selected]="hero === selectedHero"
+       (click)="onSelect(hero)">
+       <span class="badge">{{hero.id}}</span> {{hero.name}}
      </li>
    </ul>
    <hero-detail [hero]="selectedHero"></hero-detail>
-  `,
-  styles: [`
+ `,
+ styles: [`
    .selected {
      background-color: #CFD8DC !important;
      color: white;
@@ -87,15 +65,25 @@ const HEROES: Hero [] = [
      margin-right: .8em;
      border-radius: 4px 0 0 4px;
    }
- `]
+ `],
+ providers: [HeroService]
 })
-
-export class AppComponent {
+export class AppComponent implements OnInit {
  title = 'Heroes of Dear Reader';
- heroes = HEROES;
+ heroes: Hero[];
  selectedHero: Hero;
 
- onSelect(hero: Hero): void {
-  this.selectedHero = hero;
-}
+ constructor(private heroService: HeroService) { }
+
+ getHeroes(): void {
+   this.heroService.getHeroes().then(heroes => this.heroes = heroes);
  }
+
+ ngOnInit(): void {
+   this.getHeroes();
+ }
+
+ onSelect(hero: Hero): void {
+   this.selectedHero = hero;
+ }
+}

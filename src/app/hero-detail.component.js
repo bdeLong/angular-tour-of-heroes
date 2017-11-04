@@ -17,15 +17,14 @@ var HeroDetailComponent = (function () {
 }());
 __decorate([
     core_1.Input(),
-    __metadata("design:type", typeof (_a = typeof hero_1.Hero !== "undefined" && hero_1.Hero) === "function" && _a || Object)
+    __metadata("design:type", hero_1.Hero)
 ], HeroDetailComponent.prototype, "hero", void 0);
 HeroDetailComponent = __decorate([
     core_1.Component({
         selector: 'hero-detail',
-        template: "\n<div class=\"details\">\n    <div *ngIf=\"hero\">\n        <h2>{{hero.name}} details!</h2>\n        <div><label>id: </label>{{hero.id}}</div>\n        <div>\n            <label>name: </label>\n            <input [(ngModel)]=\"hero.name\" placeholder=\"name\"/>\n        </div>\n    </div>\n</div>\n ",
-        styles: ["\n .details{\n     position: absolute;\n     top: 220px;\n     left: 500px;\n }\n "]
+        template: "\n<div class=\"details\">\n    <div *ngIf=\"hero\">\n        <h2>{{hero.name}} : Details</h2>\n        <div><label>id: </label>{{hero.id}}</div>\n        <div>\n            <label>name: </label>\n            <input [(ngModel)]=\"hero.name\" placeholder=\"name\"/>\n        </div>\n    </div>\n</div>\n ",
+        styles: ["\n .details{\n     position: absolute;\n     padding: 0 10px 25px 10px; \n     top: 350px;\n     left: 500px;\n     border: 2px dotted;\n }\n "]
     })
 ], HeroDetailComponent);
 exports.HeroDetailComponent = HeroDetailComponent;
-var _a;
 //# sourceMappingURL=hero-detail.component.js.map

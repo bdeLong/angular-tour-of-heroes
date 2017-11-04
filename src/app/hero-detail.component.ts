@@ -6,7 +6,7 @@ import { Hero } from './hero';
  template: `
 <div class="details">
     <div *ngIf="hero">
-        <h2>{{hero.name}} details!</h2>
+        <h2>{{hero.name}} : Details</h2>
         <div><label>id: </label>{{hero.id}}</div>
         <div>
             <label>name: </label>
@@ -18,8 +18,10 @@ import { Hero } from './hero';
  styles: [`
  .details{
      position: absolute;
-     top: 220px;
+     padding: 0 10px 25px 10px; 
+     top: 350px;
      left: 500px;
+     border: 2px dotted;
  }
  `]
  
