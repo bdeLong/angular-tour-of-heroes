@@ -7,7 +7,7 @@ exports.HEROES = [
     { id: 5, name: 'Snake' },
     { id: 6, name: 'Val-Mart' },
     { id: 7, name: 'Softcastle McCormick' },
-    { id: 8, name: 'Woodpile & Ernie' },
+    { id: 8, name: 'Upfish' },
     { id: 9, name: "Roast Beefy O'Weefy" },
     { id: 10, name: 'Uncle Salt-Porker' },
     { id: 11, name: 'Mouthoil' },
@@ -17,7 +17,7 @@ exports.HEROES = [
     { id: 15, name: 'Zoomacroom' },
     { id: 16, name: 'Major Wood' },
     { id: 17, name: 'Ed Vanders' },
-    { id: 18, name: 'Upfish' },
+    { id: 18, name: 'Woodpile & Ernie' },
     { id: 19, name: 'Nick Flannel' },
     { id: 20, name: 'Oogity-Boogity Hat' }
 ];

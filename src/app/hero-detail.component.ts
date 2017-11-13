@@ -4,8 +4,7 @@ import { Hero } from './hero';
 @Component({
  selector: 'hero-detail',
  template: `
-<div class="details">
-    <div *ngIf="hero">
+    <div *ngIf="hero" class="details">
         <h2>{{hero.name}} : Details</h2>
         <div><label>id: </label>{{hero.id}}</div>
         <div>
@@ -13,7 +12,6 @@ import { Hero } from './hero';
             <input [(ngModel)]="hero.name" placeholder="name"/>
         </div>
     </div>
-</div>
  `,
  styles: [`
  .details{
